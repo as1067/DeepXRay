@@ -23,8 +23,21 @@ class PrepareData:
             x.append(image)
             y.append(self.convert_to_onehot(annotations[name]))
 
-        x = np.asarray(x)
-        y = np.asarray(y)
+        ids = []
+        for i in range(len(x)):
+            ids.append(i)
+
+        ids = np.asarray(ids)
+        np.random.shuffle(ids)
+
+        x_shuff = []
+        y_shuff = []
+        for id in ids:
+            x_shuff.append(x[id])
+            y_shuff.append(y[id])
+
+        x = np.asarray(x_shuff)
+        y = np.asarray(y_shuff)
 
         x = [x]
         y = [y]
