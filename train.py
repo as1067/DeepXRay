@@ -12,7 +12,7 @@ shape, classes = (448,448,1),15
 inp = Input(shape)
 model = keras_resnet.models.ResNet50(inp,classes=classes)
 model.compile("adam","categorical_crossentropy",["accuracy"])
-model.fit(x,y,epochs=100,batch_size=32,validation_split=.2,shuffle=True)
+model.fit(x,y,epochs=100,batch_size=8,validation_split=.2,shuffle=True)
 
 
 
